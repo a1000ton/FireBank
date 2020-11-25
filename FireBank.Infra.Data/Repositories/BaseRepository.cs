@@ -28,7 +28,7 @@ namespace FireBank.Infra.Data.Repositories
 
         public TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return _db.Set<TEntity>().Find(id);
         }
 
         public void Remove(TEntity obj)

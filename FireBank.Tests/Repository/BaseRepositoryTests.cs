@@ -58,7 +58,31 @@ namespace FireBank.Tests.Repository
                     Name = Guid.NewGuid().ToString()
                 });
 
-                Assert.Equal(3, context.Accounts.Count());
+                var objects = repository.GetAll();
+
+                Assert.Equal(3, objects.Count());
+            }
+        }
+
+        [Fact]
+        public void GetById_WhenPassValidId_ShouldReturnFoundObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var accountToBeFound = new Account()
+                {
+                    CreatedAt = DateTime.Now,
+                    Name = Guid.NewGuid().ToString()
+                };
+
+                var repository = new BaseRepository<Account>(context);
+                repository.Add(accountToBeFound);
+
+                var obj = repository.GetById(1);
+
+                Assert.Equal(accountToBeFound.Name, obj.Name);
             }
         }
     }

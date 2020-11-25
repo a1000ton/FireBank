@@ -47,10 +47,12 @@
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
     <Compile Include="Entities\Transaction.cs" />
+    <Compile Include="Interfaces\Repository\IAccountRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repository\ITransactionRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfaces\Repository\" />
     <Folder Include="Interfaces\Service\" />
   </ItemGroup>
   <ItemGroup>

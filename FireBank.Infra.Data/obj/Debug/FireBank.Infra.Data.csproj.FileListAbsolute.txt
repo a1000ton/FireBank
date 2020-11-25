@@ -1,0 +1,15 @@
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Infra.Data.dll.config
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Infra.Data.dll
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Infra.Data.pdb
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\EntityFramework.dll
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Domain.dll
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Domain.pdb
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\FireBank.Domain.dll.config
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\EntityFramework.xml
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\obj\Debug\FireBank.Infra.Data.csprojAssemblyReference.cache
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\obj\Debug\FireBank.Infra.Data.csproj.CoreCompileInputs.cache
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\obj\Debug\FireBank.Infra.Data.csproj.CopyComplete
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\obj\Debug\FireBank.Infra.Data.dll
+C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Infra.Data\obj\Debug\FireBank.Infra.Data.pdb

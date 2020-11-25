@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireBank.Domain.Entities
 {
-    class Account
+    public class Account : BaseEntity
     {
+        public DateTime CreatedAt { get; set; }
+        public IEnumerable<Transaction> Transactions { get; set; }
     }
 }

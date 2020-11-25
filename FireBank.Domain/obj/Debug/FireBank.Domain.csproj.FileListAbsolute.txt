@@ -1,7 +1,6 @@
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\bin\Debug\FireBank.Domain.dll.config
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\bin\Debug\FireBank.Domain.dll
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\bin\Debug\FireBank.Domain.pdb
-C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\obj\Debug\FireBank.Domain.csprojAssemblyReference.cache
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\obj\Debug\FireBank.Domain.csproj.CoreCompileInputs.cache
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\obj\Debug\FireBank.Domain.dll
 C:\Users\Femto\Documents\Projetos\FireBank\FireBank\FireBank.Domain\obj\Debug\FireBank.Domain.pdb

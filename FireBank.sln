@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.Tests", "FireBank.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.WebApi", "FireBank.WebApi\FireBank.WebApi.csproj", "{BA7815CF-F4C1-4D18-8E16-92C33E3CA519}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.Service", "FireBank.Service\FireBank.Service.csproj", "{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{BA7815CF-F4C1-4D18-8E16-92C33E3CA519}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA7815CF-F4C1-4D18-8E16-92C33E3CA519}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA7815CF-F4C1-4D18-8E16-92C33E3CA519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{A9E903C1-1DED-4AE1-B997-A5C21B57B87F} = {8557E930-6B10-4837-9E09-5663239AEEF0}
 		{F0C5B169-D0A9-4C6A-8925-3C216B45B996} = {B2CF7828-9811-4861-BAD5-76AC8B4AE359}
 		{BA7815CF-F4C1-4D18-8E16-92C33E3CA519} = {A8BC1941-8514-4535-B858-4B847F413AB6}
+		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949} = {930D6F7D-667E-4371-8BA4-053336040F67}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1DF3D2D-3376-4C70-951F-B1D5B97756FC}

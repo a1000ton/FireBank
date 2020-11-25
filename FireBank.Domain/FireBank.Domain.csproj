@@ -50,11 +50,12 @@
     <Compile Include="Interfaces\Repository\IAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repository\ITransactionRepository.cs" />
+    <Compile Include="Interfaces\Service\IAccountService.cs" />
+    <Compile Include="Interfaces\Service\IServiceBase.cs" />
+    <Compile Include="Interfaces\Service\ITransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\Service\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>

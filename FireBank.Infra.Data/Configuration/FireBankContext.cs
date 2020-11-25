@@ -1,4 +1,5 @@
 ﻿using FireBank.Domain.Entities;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -8,11 +9,14 @@ namespace FireBank.Infra.Data.Configuration
     {
         public FireBankContext() : base("Data Source=(localdb)\\ProjectsV13;Initial Catalog=FireBank;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
-
         }
 
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Transaction> Transactions { get; set; }
+        public FireBankContext(DbConnection connection) : base(connection, false)
+        {
+        }
+
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

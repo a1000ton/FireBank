@@ -3,8 +3,6 @@ using FireBank.Infra.Data.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FireBank.Infra.Data.Repositories
 {
@@ -19,12 +17,13 @@ namespace FireBank.Infra.Data.Repositories
 
         public void Add(TEntity obj)
         {
-            throw new NotImplementedException();
+            _db.Set<TEntity>().Add(obj);
+            _db.SaveChanges();
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _db.Set<TEntity>().ToList();
         }
 
         public TEntity GetById(int id)

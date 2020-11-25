@@ -85,5 +85,32 @@ namespace FireBank.Tests.Repository
                 Assert.Equal(accountToBeFound.Name, obj.Name);
             }
         }
+
+        [Fact]
+        public void Remove_WhenPassValidObject_ShouldDeleteObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var accountToBeDeleted = new Account()
+                {
+                    CreatedAt = DateTime.Now,
+                    Name = Guid.NewGuid().ToString()
+                };
+
+                var repository = new BaseRepository<Account>(context);
+                repository.Add(accountToBeDeleted);
+                repository.Add(new Account()
+                {
+                    CreatedAt = DateTime.Now,
+                    Name = Guid.NewGuid().ToString()
+                });
+
+                repository.Remove(accountToBeDeleted);
+
+                Assert.False(context.Accounts.Where(account => account.Name == accountToBeDeleted.Name).Any());
+            }
+        }
     }
 }

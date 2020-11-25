@@ -33,7 +33,8 @@ namespace FireBank.Infra.Data.Repositories
 
         public void Remove(TEntity obj)
         {
-            throw new NotImplementedException();
+            _db.Set<TEntity>().Remove(obj);
+            _db.SaveChanges();
         }
 
         public void Update(TEntity obj)

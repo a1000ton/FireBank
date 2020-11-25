@@ -1,7 +1,7 @@
 ﻿using FireBank.Domain.Interfaces.Repository;
 using FireBank.Infra.Data.Configuration;
-using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace FireBank.Infra.Data.Repositories
@@ -15,10 +15,12 @@ namespace FireBank.Infra.Data.Repositories
             _db = db;
         }
 
-        public void Add(TEntity obj)
+        public TEntity Add(TEntity obj)
         {
             _db.Set<TEntity>().Add(obj);
             _db.SaveChanges();
+
+            return obj;
         }
 
         public IEnumerable<TEntity> GetAll()
@@ -37,9 +39,12 @@ namespace FireBank.Infra.Data.Repositories
             _db.SaveChanges();
         }
 
-        public void Update(TEntity obj)
+        public TEntity Update(TEntity obj)
         {
-            throw new NotImplementedException();
+            _db.Entry(obj).State = EntityState.Modified;
+            _db.SaveChanges();
+
+            return obj;
         }
     }
 }

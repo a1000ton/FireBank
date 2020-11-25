@@ -17,7 +17,7 @@ namespace FireBank.Tests.Repository
 
             using (var context = new FireBankContext(connection))
             {
-                var accountToAdd = new Account()
+                var account = new Account()
                 {
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
@@ -25,10 +25,11 @@ namespace FireBank.Tests.Repository
 
 
                 var repository = new BaseRepository<Account>(context);
-                repository.Add(accountToAdd);
+                var addedAccount = repository.Add(account);
 
                 Assert.Equal(1, context.Accounts.Count());
-                Assert.Equal(accountToAdd.Name, context.Accounts.Find(1).Name);
+                Assert.Equal(addedAccount.Name, context.Accounts.ToList().First().Name);
+                Assert.Equal(addedAccount.Id, context.Accounts.ToList().First().Id);
             }
         }
 
@@ -58,9 +59,9 @@ namespace FireBank.Tests.Repository
                     Name = Guid.NewGuid().ToString()
                 });
 
-                var objects = repository.GetAll();
+                var accounts = repository.GetAll();
 
-                Assert.Equal(3, objects.Count());
+                Assert.Equal(3, accounts.Count());
             }
         }
 
@@ -71,18 +72,19 @@ namespace FireBank.Tests.Repository
 
             using (var context = new FireBankContext(connection))
             {
-                var accountToBeFound = new Account()
+                var account = new Account()
                 {
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
                 };
 
                 var repository = new BaseRepository<Account>(context);
-                repository.Add(accountToBeFound);
+                var addedAccount = repository.Add(account);
 
-                var obj = repository.GetById(1);
+                var foundAccount = repository.GetById(1);
 
-                Assert.Equal(accountToBeFound.Name, obj.Name);
+                Assert.Equal(addedAccount.Id, foundAccount.Id);
+                Assert.Equal(addedAccount.Name, foundAccount.Name);
             }
         }
 
@@ -93,23 +95,52 @@ namespace FireBank.Tests.Repository
 
             using (var context = new FireBankContext(connection))
             {
-                var accountToBeDeleted = new Account()
+                var account = new Account()
                 {
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
                 };
 
                 var repository = new BaseRepository<Account>(context);
-                repository.Add(accountToBeDeleted);
+                repository.Add(account);
                 repository.Add(new Account()
                 {
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
                 });
 
-                repository.Remove(accountToBeDeleted);
+                repository.Remove(account);
 
-                Assert.False(context.Accounts.Where(account => account.Name == accountToBeDeleted.Name).Any());
+                Assert.False(context.Accounts.Where(acc => acc.Id == account.Id).Any());
+            }
+        }
+
+        [Fact]
+        public void Update_WhenPassUpdatedObject_ShouldUpdateObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var oldName = Guid.NewGuid().ToString();
+                var newName = Guid.NewGuid().ToString();
+
+                var account = new Account()
+                {
+                    CreatedAt = DateTime.Now,
+                    Name = oldName
+                };
+
+                var repository = new BaseRepository<Account>(context);
+
+                var addedAccount = repository.Add(account);
+
+                addedAccount.Name = newName;
+
+                repository.Update(addedAccount);
+
+                Assert.False(context.Accounts.Where(acc => acc.Name == oldName).Any());
+                Assert.True(context.Accounts.Where(acc => acc.Name == newName).Any());
             }
         }
     }

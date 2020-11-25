@@ -11,8 +11,8 @@ namespace FireBank.Infra.Data.Configuration
 
         }
 
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

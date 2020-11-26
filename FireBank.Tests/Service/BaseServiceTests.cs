@@ -71,7 +71,7 @@ namespace FireBank.Tests.Service
         public void GetById_WhenPassValidId_ShouldReturnFoundObject()
         {
             var accountId = 3;
-           
+
             var account = new Account()
             {
                 Id = accountId,
@@ -88,6 +88,26 @@ namespace FireBank.Tests.Service
 
             repositoryMock.Verify(rep => rep.GetById(accountId), Times.Once());
             Assert.Equal(account, returnedAccount);
+        }
+
+        [Fact]
+        public void Remove_WhenPassValidObject_ShouldDeleteObject()
+        {
+            var account = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var repositoryMock = new Mock<IBaseRepository<Account>>();
+            repositoryMock.Setup(r => r.Remove(account));
+
+            var service = new BaseService<Account>(repositoryMock.Object);
+
+            service.Remove(account);
+
+            repositoryMock.Verify(rep => rep.Remove(account), Times.Once());
         }
     }
 }

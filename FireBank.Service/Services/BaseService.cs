@@ -31,7 +31,7 @@ namespace FireBank.Service.Services
 
         public void Remove(TEntity obj)
         {
-            throw new NotImplementedException();
+            _repository.Remove(obj);
         }
 
         public TEntity Update(TEntity obj)

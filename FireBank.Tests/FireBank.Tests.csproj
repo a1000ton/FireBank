@@ -86,17 +86,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\BaseAccountRepositoryTests.cs" />
     <Compile Include="Repository\New\AccountRepositoryTests.cs" />
     <Compile Include="Repository\New\TransactionRepositoryTests.cs" />
-    <Compile Include="Repository\TransactionRepositoryTests.cs" />
-    <Compile Include="Service\BaseAccountServiceTests.cs" />
-    <Compile Include="Service\BusinessAccountServiceTests.cs" />
-    <Compile Include="Service\GiroAccountServiceTests.cs" />
     <Compile Include="Service\New\AccountServiceTests.cs" />
     <Compile Include="Service\New\TransactionServiceTests.cs" />
-    <Compile Include="Service\StudentAccountServiceTests.cs" />
-    <Compile Include="Service\TransactionServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

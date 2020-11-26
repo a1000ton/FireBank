@@ -1,4 +1,4 @@
-﻿using FireBank.Domain.Entities.Old;
+﻿using FireBank.Domain.Entities;
 
 namespace FireBank.Application.Models
 {

@@ -176,5 +176,92 @@ namespace FireBank.Tests.Service.New
             repositoryMock.Verify(rep => rep.Update(account), Times.Once());
             Assert.Equal(returnedAccount, updatedAccount);
         }
+
+        [Fact]
+        public void BalanceIsValid_WhenPassBusinessObjectWithValidAndInvalidBalance_ShouldReturnFalseForInvalidAndTrueForValid()
+        {
+            var validBalance = 1;
+            var invalidBalance = -200000;
+            var accountId = 2;
+
+            var account = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now,
+                AccountType = new BusinessAccount()
+                {
+                    BusinessId = 1
+                }
+            };
+
+            var repository = new Mock<IAccountRepository>();
+            repository.Setup(b => b.GetById(accountId)).Returns(account);
+
+            var service = new AccountService(repository.Object);
+
+            var isValidBalanceValid = service.BalanceIsValid(validBalance, accountId);
+            var isInvalidBalanceValid = service.BalanceIsValid(invalidBalance, accountId);
+
+            Assert.True(isValidBalanceValid);
+            Assert.False(isInvalidBalanceValid);
+        }
+
+        [Fact]
+        public void BalanceIsValid_WhenPassStudentObjectWithValidAndInvalidBalance_ShouldReturnFalseForInvalidAndTrueForValid()
+        {
+            var validBalance = 5;
+            var invalidBalance = -1;
+            var accountId = 2;
+
+            var account = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now,
+                AccountType = new StudentAccount()
+                {
+                    StudentId = 10
+                }
+            };
+
+            var repository = new Mock<IAccountRepository>();
+            repository.Setup(b => b.GetById(accountId)).Returns(account);
+
+            var service = new AccountService(repository.Object);
+
+            var isValidBalanceValid = service.BalanceIsValid(validBalance, accountId);
+            var isInvalidBalanceValid = service.BalanceIsValid(invalidBalance, accountId);
+
+            Assert.True(isValidBalanceValid);
+            Assert.False(isInvalidBalanceValid);
+        }
+
+        [Fact]
+        public void BalanceIsValid_WhenPassGiroObjectWithValidAndInvalidBalance_ShouldReturnFalseForInvalidAndTrueForValid()
+        {
+            var validBalance = 2000;
+            var invalidBalance = -5000;
+            var accountId = 2;
+
+            var account = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now,
+                AccountType = new GiroAccount() { }
+            };
+
+            var repository = new Mock<IAccountRepository>();
+            repository.Setup(b => b.GetById(accountId)).Returns(account);
+
+            var service = new AccountService(repository.Object);
+
+            var isValidBalanceValid = service.BalanceIsValid(validBalance, accountId);
+            var isInvalidBalanceValid = service.BalanceIsValid(invalidBalance, accountId);
+
+            Assert.True(isValidBalanceValid);
+            Assert.False(isInvalidBalanceValid);
+        }
     }
 }

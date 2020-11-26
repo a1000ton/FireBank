@@ -5,10 +5,10 @@ namespace FireBank.WebApi.App_Start
 {
     using System;
     using System.Web;
-    using FireBank.Domain.Interfaces.Repository;
-    using FireBank.Domain.Interfaces.Service;
-    using FireBank.Infra.Data.Repositories;
-    using FireBank.Service.Services;
+    using FireBank.Domain.Interfaces.Repository.New;
+    using FireBank.Domain.Interfaces.Service.New;
+    using FireBank.Infra.Data.Repositories.New;
+    using FireBank.Service.Services.New;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
     using Ninject;
     using Ninject.Web.Common;
@@ -63,16 +63,10 @@ namespace FireBank.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IBaseAccountRepository<>)).To(typeof(BaseAccountRepository<>));
-            kernel.Bind<IBusinessAccountRepository>().To<BusinessAccountRepository>();
-            kernel.Bind<IStudentAccountRepository>().To<StudentAccountRepository>();
-            kernel.Bind<IGiroAccountRepository>().To<GiroAccountRepository>();
+            kernel.Bind<IAccountRepository>().To<AccountRepository>();
             kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
 
-            kernel.Bind(typeof(IBaseAccountService<>)).To(typeof(BaseAccountService<>));
-            kernel.Bind<IBusinessAccountService>().To<BusinessAccountService>();
-            kernel.Bind<IStudentAccountService>().To<StudentAccountService>();
-            kernel.Bind<IGiroAccountService>().To<GiroAccountService>();
+            kernel.Bind<IAccountService>().To<AccountService>();
             kernel.Bind<ITransactionService>().To<TransactionService>();
         }
     }

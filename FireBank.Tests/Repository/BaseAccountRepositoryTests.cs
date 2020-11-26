@@ -89,5 +89,133 @@ namespace FireBank.Tests.Repository
                 Assert.Equal(balance, lastBalance);
             }
         }
+
+        [Fact]
+        public void GetAll_WhenCalled_ShouldShowAllObjects()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var repository = new BaseAccountRepository<BusinessAccount>(context);
+                repository.Add(new BusinessAccount()
+                {
+                    BusinessId = 1,
+                    Account = new Account()
+                    {
+                        Name = Guid.NewGuid().ToString()
+                    }
+                });
+
+                repository.Add(new BusinessAccount()
+                {
+                    BusinessId = 2,
+                    Account = new Account()
+                    {
+                        Name = Guid.NewGuid().ToString()
+                    }
+                });
+
+                repository.Add(new BusinessAccount()
+                {
+                    BusinessId = 3,
+                    Account = new Account()
+                    {
+                        Name = Guid.NewGuid().ToString()
+                    }
+                });
+
+                var accounts = repository.GetAll();
+
+                Assert.Equal(3, accounts.Count());
+            }
+        }
+
+        [Fact]
+        public void GetById_WhenPassValidId_ShouldReturnFoundObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var account = new BusinessAccount()
+                {
+                    BusinessId = 10,
+                    Account = new Account()
+                    {
+                        CreatedAt = DateTime.Now,
+                        Name = Guid.NewGuid().ToString()
+                    }
+                };
+
+                var repository = new BaseAccountRepository<BusinessAccount>(context);
+                var addedAccount = repository.Add(account);
+
+                var foundAccount = repository.GetById(1);
+
+                Assert.Equal(addedAccount.Account.Id, foundAccount.Account.Id);
+                Assert.Equal(addedAccount.Account.Name, foundAccount.Account.Name);
+            }
+        }
+
+        [Fact]
+        public void Remove_WhenPassValidObject_ShouldDeleteObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var account = new BusinessAccount()
+                {
+                    BusinessId = 12,
+                    Account = new Account()
+                    {
+                        CreatedAt = DateTime.Now,
+                        Name = Guid.NewGuid().ToString()
+                    }
+                };
+
+                var repository = new BaseAccountRepository<BusinessAccount>(context);
+
+                repository.Add(account);
+
+                repository.Remove(account);
+
+                Assert.False(context.BusinessAccounts.Where(acc => acc.BusinessId == account.BusinessId).Any());
+            }
+        }
+
+        [Fact]
+        public void Update_WhenPassUpdatedObject_ShouldUpdateObject()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var oldName = Guid.NewGuid().ToString();
+                var newName = Guid.NewGuid().ToString();
+
+                var account = new BusinessAccount()
+                {
+                    BusinessId = 15,
+                    Account = new Account()
+                    {
+                        CreatedAt = DateTime.Now,
+                        Name = Guid.NewGuid().ToString()
+                    }
+                };
+
+                var repository = new BaseAccountRepository<BusinessAccount>(context);
+
+                var addedAccount = repository.Add(account);
+
+                addedAccount.Account.Name = newName;
+
+                repository.Update(addedAccount);
+
+                Assert.False(context.BusinessAccounts.Where(acc => acc.Account.Name == oldName).Any());
+                Assert.True(context.BusinessAccounts.Where(acc => acc.Account.Name == newName).Any());
+            }
+        }
     }
 }

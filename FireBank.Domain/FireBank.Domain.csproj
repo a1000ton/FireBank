@@ -51,7 +51,7 @@
     <Compile Include="Entities\StudentAccount.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Interfaces\Repository\OldRepos\IAccountRepository.cs" />
-    <Compile Include="Interfaces\Repository\OldRepos\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repository\OldRepos\IBusinessAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\OldRepos\IGiroAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\OldRepos\IStudentAccountRepository.cs" />

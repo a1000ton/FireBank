@@ -1,12 +1,9 @@
 ﻿using Effort;
-using FireBank.Domain.Entities;
+using FireBank.Domain.Entities.Old;
 using FireBank.Infra.Data.Configuration;
 using FireBank.Infra.Data.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace FireBank.Tests.Repository

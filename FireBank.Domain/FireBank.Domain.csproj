@@ -45,9 +45,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
-    <Compile Include="Entities\BaseAccount.cs" />
     <Compile Include="Entities\BusinessAccount.cs" />
     <Compile Include="Entities\GiroAccount.cs" />
+    <Compile Include="Entities\IAccountType.cs" />
+    <Compile Include="Entities\Old\Account.cs" />
+    <Compile Include="Entities\Old\BaseAccount.cs" />
+    <Compile Include="Entities\Old\BusinessAccount.cs" />
+    <Compile Include="Entities\Old\GiroAccount.cs" />
+    <Compile Include="Entities\Old\StudentAccount.cs" />
+    <Compile Include="Entities\Old\Transaction.cs" />
     <Compile Include="Entities\StudentAccount.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Interfaces\Repository\IBusinessAccountRepository.cs" />

@@ -1,5 +1,5 @@
 ﻿using Effort;
-using FireBank.Domain.Entities;
+using FireBank.Domain.Entities.Old;
 using FireBank.Infra.Data.Configuration;
 using FireBank.Infra.Data.Repositories;
 using System;

@@ -1,4 +1,4 @@
-﻿using FireBank.Domain.Entities;
+﻿using FireBank.Domain.Entities.Old;
 using FireBank.Domain.Interfaces.Repository;
 using FireBank.Service.Services;
 using Moq;

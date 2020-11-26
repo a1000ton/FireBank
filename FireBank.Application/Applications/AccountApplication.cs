@@ -77,5 +77,47 @@ namespace FireBank.Application.Applications
                 }
             };
         }
+
+        public AccountModel GetAccount(int accountId)
+        {
+            var account = _service.GetById(accountId);
+            var balance = _service.GetBalance(account);
+
+            var accountType = GetAccountType(account.AccountType);
+
+            return new AccountModel()
+            {
+                Balance = balance,
+                CreatedAt = account.CreatedAt,
+                Id = account.Id,
+                Name = account.Name,
+                Type = accountType
+            };
+        }
+
+        private IAccountModelType GetAccountType(IAccountType accountType)
+        {
+            if (accountType.GetType() == typeof(BusinessAccount))
+            {
+                var businessAccountType = (BusinessAccount)accountType;
+
+                return new BusinessAccountModel()
+                {
+                    BusinessId = businessAccountType.BusinessId
+                };
+            }
+
+            if (accountType.GetType() == typeof(StudentAccount))
+            {
+                var studentAccountType = (StudentAccount)accountType;
+
+                return new StudentAccountModel()
+                {
+                    StudentId = studentAccountType.StudentId
+                };
+            }
+
+            return new GiroAccountModel();
+        }
     }
 }

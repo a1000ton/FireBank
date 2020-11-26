@@ -8,7 +8,7 @@ namespace FireBank.Application.Models
         public DateTime CreatedAt { get; set; }
         public int Balance { get; set; }
         public string Name { get; set; }
-        public IAccountCreatedModelType Type { get; set; }
+        public IAccountModelType Type { get; set; }
     }
 
     public interface IAccountModelType

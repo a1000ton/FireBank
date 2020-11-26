@@ -7,5 +7,6 @@ namespace FireBank.Application.Applications.Interfaces
         AccountCreatedModel CreateBusinessAccount(BusinessAccountCreationModel account);
         AccountCreatedModel CreateStudentAccount(StudentAccountCreationModel account);
         AccountCreatedModel CreateGiroAccount(GiroAccountCreationModel account);
+        AccountModel GetAccount(int accountId);
     }
 }

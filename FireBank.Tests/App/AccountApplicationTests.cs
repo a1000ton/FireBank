@@ -6,6 +6,7 @@ using FireBank.Infra.Data.Configuration;
 using FireBank.Infra.Data.Repositories;
 using FireBank.Service.Services;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace FireBank.Tests.App
@@ -13,7 +14,7 @@ namespace FireBank.Tests.App
     public class AccountApplicationTests
     {
         [Fact]
-        public void Create_WhenPassValidBusinessAccount_ShouldCreateTheNewAccount()
+        public void CreateBusinessAccount_WhenPassValidBusinessAccount_ShouldCreateTheNewAccount()
         {
             var connection = DbConnectionFactory.CreateTransient();
 
@@ -47,7 +48,7 @@ namespace FireBank.Tests.App
         }
 
         [Fact]
-        public void Create_WhenPassValidStudentAccount_ShouldCreateTheNewAccount()
+        public void CreateStudentAccount_WhenPassValidStudentAccount_ShouldCreateTheNewAccount()
         {
             var connection = DbConnectionFactory.CreateTransient();
 
@@ -81,7 +82,7 @@ namespace FireBank.Tests.App
         }
 
         [Fact]
-        public void Create_WhenPassValidGiroAccount_ShouldCreateTheNewAccount()
+        public void CreateGiroAccount_WhenPassValidGiroAccount_ShouldCreateTheNewAccount()
         {
             var connection = DbConnectionFactory.CreateTransient();
 
@@ -94,7 +95,7 @@ namespace FireBank.Tests.App
                     Name = name,
                 };
 
-                var expectedGiroAccount = new GiroAccountCreatedModel(){};
+                var expectedGiroAccount = new GiroAccountCreatedModel() { };
 
                 var accountRepository = new AccountRepository(context);
                 var accountService = new AccountService(accountRepository);
@@ -105,6 +106,59 @@ namespace FireBank.Tests.App
 
                 Assert.Equal(addedAccount.Name, name);
                 Assert.Equal(addedAccount.Type.GetType(), expectedGiroAccount.GetType());
+            }
+        }
+
+        [Fact]
+        public void GetAccount_WhenPassValidAccountId_ShouldReturnAccount()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var name = Guid.NewGuid().ToString();
+                var businessId = 10;
+                var currentBalance = 100;
+
+                var account = new Account()
+                {
+                    Name = name,
+                    AccountType = new BusinessAccount()
+                    {
+                        BusinessId = businessId
+                    },
+                    Transactions = new List<Transaction>()
+                    {
+                        new Transaction()
+                        {
+                            Balance = currentBalance,
+                            Amount = 10,
+                            Date = DateTime.Now,
+                            Status = TransactionStatus.Completed
+                        }
+                    }
+                };
+
+                var expectedBusinessAccount = new BusinessAccountModel()
+                {
+                    BusinessId = businessId,
+                };
+
+
+                var accountRepository = new AccountRepository(context);
+                var accountService = new AccountService(accountRepository);
+
+                var addedAccount = accountService.Add(account);
+
+                var accountApp = new AccountApplication(accountService);
+
+                var getAccount = accountApp.GetAccount(addedAccount.Id);
+                var getAccountType = (BusinessAccountModel)getAccount.Type;
+
+                Assert.Equal(getAccount.Name, name);
+                Assert.Equal(getAccount.Balance, currentBalance);
+                Assert.Equal(getAccount.Type.GetType(), expectedBusinessAccount.GetType());
+                Assert.Equal(getAccountType.BusinessId, expectedBusinessAccount.BusinessId);
             }
         }
     }

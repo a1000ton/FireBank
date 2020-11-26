@@ -9,6 +9,7 @@ namespace FireBank.Infra.Data.Configuration
     {
         public FireBankContext() : base("Data Source=(localdb)\\ProjectsV13;Initial Catalog=FireBank;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False")
         {
+            var ensureDLLIsCopied = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
         public FireBankContext(DbConnection connection) : base(connection, false)

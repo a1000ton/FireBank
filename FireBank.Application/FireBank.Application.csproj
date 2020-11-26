@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\AccountApplication.cs" />
+    <Compile Include="Applications\Interfaces\IAccountApplication.cs" />
     <Compile Include="Applications\Interfaces\ITransactionApplication.cs" />
     <Compile Include="Applications\TransactionApplication.cs" />
     <Compile Include="Models\AccountCreatedModel.cs" />

@@ -12,61 +12,6 @@ namespace FireBank.Tests.Repository.New
     public class AccountRepositoryTests
     {
         [Fact]
-        public void Teste()
-        {
-            var connection = DbConnectionFactory.CreateTransient();
-
-            using (var context = new FireBankContext(connection))
-            {
-                var account = new Account()
-                {
-                    CreatedAt = DateTime.Now,
-                    Name = Guid.NewGuid().ToString(),
-                    AccountType = new BusinessAccount()
-                    {
-                        BusinessId = 10,
-                    },
-                    Transactions = new List<Transaction>() { }
-                };
-
-                var account2 = new Account()
-                {
-                    CreatedAt = DateTime.Now,
-                    Name = Guid.NewGuid().ToString(),
-                    AccountType = new GiroAccount()
-                    {
-                    },
-                    Transactions = new List<Transaction>()
-                    {
-
-                    }
-                };
-
-                var account3 = new Account()
-                {
-                    CreatedAt = DateTime.Now,
-                    Name = Guid.NewGuid().ToString(),
-                    AccountType = new StudentAccount()
-                    {
-                        StudentId = 200
-                    },
-                    Transactions = new List<Transaction>()
-                    {
-
-                    }
-                };
-
-
-                var repository = new AccountRepository(context);
-
-                repository.Add(account);
-                repository.Add(account2);
-                repository.Add(account3);
-            }
-        }
-
-
-        [Fact]
         public void Add_WhenPassObject_ShouldAddObject()
         {
             var connection = DbConnectionFactory.CreateTransient();

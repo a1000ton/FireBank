@@ -58,6 +58,7 @@
     <Compile Include="Repositories\GiroAccountRepository.cs" />
     <Compile Include="Repositories\BaseAccountRepository.cs" />
     <Compile Include="Repositories\New\AccountRepository.cs" />
+    <Compile Include="Repositories\New\TransactionRepository.cs" />
     <Compile Include="Repositories\StudentAccountRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
   </ItemGroup>

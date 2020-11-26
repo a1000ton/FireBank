@@ -31,9 +31,17 @@ namespace FireBank.Infra.Data.Repositories
         public int GetBalance(int accountId)
         {
             var account = _db.Set<Account>().Find(accountId);
-            var balance = account.Transactions.OrderBy(transaction => transaction.Date).Last().Balance;
 
-            return balance;
+            var lastTransaction =
+                account.Transactions
+                    .Where(transaction => transaction.Status == TransactionStatus.Completed)
+                    .OrderBy(transaction => transaction.Date)
+                    .LastOrDefault();
+
+            if (lastTransaction == null)
+                return 0;
+
+            return lastTransaction.Balance;
         }
 
         public Account GetById(int id)

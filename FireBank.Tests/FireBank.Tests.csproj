@@ -87,6 +87,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseRepositoryTests.cs" />
+    <Compile Include="Service\BaseServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -103,6 +104,10 @@
     <ProjectReference Include="..\FireBank.Infra.Data\FireBank.Infra.Data.csproj">
       <Project>{a9e903c1-1ded-4ae1-b997-a5c21b57b87f}</Project>
       <Name>FireBank.Infra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FireBank.Service\FireBank.Service.csproj">
+      <Project>{a8befafd-99a8-4317-8b88-cfe70dfc7949}</Project>
+      <Name>FireBank.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

@@ -2,7 +2,7 @@
 
 namespace FireBank.Domain.Interfaces.Service
 {
-    public interface ITransactionService : IServiceBase<Transaction>
+    public interface ITransactionService : IBaseService<Transaction>
     {
 
     }

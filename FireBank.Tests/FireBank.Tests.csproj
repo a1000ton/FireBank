@@ -85,6 +85,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App\AccountApplicationTests.cs" />
     <Compile Include="App\TransactionApplicationTests.cs" />
     <Compile Include="Repository\AccountRepositoryTests.cs" />
     <Compile Include="Repository\TransactionRepositoryTests.cs" />

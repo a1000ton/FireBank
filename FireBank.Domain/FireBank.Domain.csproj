@@ -46,6 +46,9 @@
   <ItemGroup>
     <Compile Include="Entities\Account.cs" />
     <Compile Include="Entities\BaseEntity.cs" />
+    <Compile Include="Entities\BusinessAccount.cs" />
+    <Compile Include="Entities\GiroAccount.cs" />
+    <Compile Include="Entities\StudentAccount.cs" />
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Interfaces\Repository\IAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\IBaseRepository.cs" />

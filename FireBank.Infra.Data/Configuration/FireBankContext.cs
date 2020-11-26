@@ -18,6 +18,9 @@ namespace FireBank.Infra.Data.Configuration
 
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<BusinessAccount> BusinessAccounts { get; set; }
+        public DbSet<StudentAccount> StudentAccounts { get; set; }
+        public DbSet<GiroAccount> GiroAccounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -26,8 +29,10 @@ namespace FireBank.Infra.Data.Configuration
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
-
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
+
+            modelBuilder.Configurations.Add(new StudentAccountConfiguration());
+            modelBuilder.Configurations.Add(new BusinessAccountConfiguration());
         }
     }
 }

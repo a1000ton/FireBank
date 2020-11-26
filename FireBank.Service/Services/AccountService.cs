@@ -16,6 +16,9 @@ namespace FireBank.Service.Services
 
         public Account Add(Account obj)
         {
+            if (obj.Transactions == null)
+                obj.Transactions = new List<Transaction>() { };
+
             return _repository.Add(obj);
         }
 
@@ -32,9 +35,9 @@ namespace FireBank.Service.Services
             return _repository.GetAll();
         }
 
-        public int GetBalance(int accountId)
+        public int GetBalance(Account account)
         {
-            return _repository.GetBalance(accountId);
+            return _repository.GetBalance(account.Id);
         }
 
         public Account GetById(int id)

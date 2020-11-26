@@ -88,12 +88,13 @@ namespace FireBank.Tests.Service
         {
             var currentBalance = 1000;
             var accountId = 5;
+            var account = new Account() { Id = accountId };
 
             var repositoryMock = new Mock<IAccountRepository>();
             repositoryMock.Setup(r => r.GetBalance(accountId)).Returns(currentBalance);
 
             var service = new AccountService(repositoryMock.Object);
-            var returnedBalance = service.GetBalance(accountId);
+            var returnedBalance = service.GetBalance(account);
 
             Assert.Equal(returnedBalance, currentBalance);
             repositoryMock.Verify(r => r.GetBalance(accountId), Times.Once());

@@ -45,7 +45,7 @@ namespace FireBank.Tests.Service
             repositoryMock.Setup(r => r.Add(transaction)).Returns(addedTransaction);
 
             var serviceAccountMock = new Mock<IAccountService>();
-            serviceAccountMock.Setup(s => s.GetBalance(It.IsAny<int>())).Returns(100);
+            serviceAccountMock.Setup(s => s.GetBalance(It.IsAny<Account>())).Returns(100);
             serviceAccountMock.Setup(s => s.BalanceIsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
 
             var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);

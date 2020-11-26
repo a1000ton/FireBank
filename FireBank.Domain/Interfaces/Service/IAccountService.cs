@@ -11,6 +11,6 @@ namespace FireBank.Domain.Interfaces.Service
         Account Update(Account obj);
         void Remove(Account obj);
         bool BalanceIsValid(int balance, int accountId);
-        int GetBalance(int accountId);
+        int GetBalance(Account account);
     }
 }

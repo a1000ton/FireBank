@@ -53,7 +53,8 @@ namespace FireBank.Tests.Repository
                     Balance = lastBalance,
                     Amount = 20,
                     Type = TransactionType.Deposit,
-                    Date = DateTime.Now.AddDays(-10)
+                    Date = DateTime.Now.AddDays(-10),
+                    Status = TransactionStatus.Completed,
                 };
 
                 var transactionTwo = new Transaction()
@@ -61,7 +62,8 @@ namespace FireBank.Tests.Repository
                     Balance = 80,
                     Amount = 10,
                     Type = TransactionType.Deposit,
-                    Date = DateTime.Now.AddDays(-15)
+                    Date = DateTime.Now.AddDays(-15),
+                    Status = TransactionStatus.Completed,
                 };
 
                 var transactions = new List<Transaction>()

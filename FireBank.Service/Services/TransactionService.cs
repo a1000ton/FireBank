@@ -1,6 +1,7 @@
 ﻿using FireBank.Domain.Entities;
 using FireBank.Domain.Interfaces.Repository;
 using FireBank.Domain.Interfaces.Service;
+using System;
 using System.Collections.Generic;
 
 namespace FireBank.Service.Services
@@ -18,18 +19,35 @@ namespace FireBank.Service.Services
 
         public Transaction Add(Transaction obj)
         {
-            var accountId = obj.Account.Id;
-            var currentBalance = _accountService.GetBalance(accountId);
+            var accountId = obj.AccountId;
+            var account = _accountService.GetById(accountId);
+
+            obj.Account = account;
+
+            var oldBalance = _accountService.GetBalance(account);
+            var currentBalance = oldBalance;
 
             if (obj.Type == TransactionType.Deposit)
-                currentBalance = Deposit(obj.Amount, currentBalance);
+                currentBalance = Deposit(obj.Amount, oldBalance);
             else if (obj.Type == TransactionType.Withdrawal)
-                currentBalance = Withdrawal(obj.Amount, currentBalance);
+                currentBalance = Withdrawal(obj.Amount, oldBalance);
+
+            obj.Date = DateTime.Now;
+            obj.Balance = oldBalance;
 
             if (CanCompleteTransaction(currentBalance, accountId))
-                return _repository.Add(obj);
+            {
+                obj.Balance = currentBalance;
+                obj.Status = TransactionStatus.Completed;
 
-            return null;
+                var newTransaction = _repository.Add(obj);
+
+                return newTransaction;
+            }
+
+            obj.Status = TransactionStatus.Cancelled;
+
+            return obj;
         }
 
         public IEnumerable<Transaction> GetAll()

@@ -19,21 +19,21 @@ namespace FireBank.Tests.Service
                 CreatedAt = DateTime.Now
             };
 
-            var returnedAccount = new Account()
+            var addedAccount = new Account()
             {
                 Name = Guid.NewGuid().ToString(),
                 CreatedAt = DateTime.Now
             };
 
             var repositoryMock = new Mock<IBaseRepository<Account>>();
-            repositoryMock.Setup(r => r.Add(account)).Returns(returnedAccount);
+            repositoryMock.Setup(r => r.Add(account)).Returns(addedAccount);
 
             var service = new BaseService<Account>(repositoryMock.Object);
 
-            var addedAccount = service.Add(account);
+            var returnedAccount = service.Add(account);
 
             repositoryMock.Verify(rep => rep.Add(account), Times.Once());
-            Assert.Equal(addedAccount, returnedAccount);
+            Assert.Equal(returnedAccount, addedAccount);
         }
 
         [Fact]
@@ -108,6 +108,34 @@ namespace FireBank.Tests.Service
             service.Remove(account);
 
             repositoryMock.Verify(rep => rep.Remove(account), Times.Once());
+        }
+
+        [Fact]
+        public void Update_WhenPassUpdatedObject_ShouldUpdateObject()
+        {
+            var account = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var updatedAccount = new Account()
+            {
+                Id = 3,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var repositoryMock = new Mock<IBaseRepository<Account>>();
+            repositoryMock.Setup(r => r.Update(account)).Returns(updatedAccount);
+
+            var service = new BaseService<Account>(repositoryMock.Object);
+
+            var returnedAccount = service.Update(account);
+
+            repositoryMock.Verify(rep => rep.Update(account), Times.Once());
+            Assert.Equal(returnedAccount, updatedAccount);
         }
     }
 }

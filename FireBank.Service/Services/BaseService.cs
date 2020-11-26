@@ -36,7 +36,7 @@ namespace FireBank.Service.Services
 
         public TEntity Update(TEntity obj)
         {
-            throw new NotImplementedException();
+            return _repository.Update(obj);
         }
     }
 }

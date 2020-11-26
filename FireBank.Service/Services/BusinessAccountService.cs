@@ -6,16 +6,11 @@ namespace FireBank.Service.Services
 {
     public class BusinessAccountService : BaseService<BusinessAccount>, IBusinessAccountService
     {
-        private readonly IBusinessAccountRepository _repository;
+        private new readonly IBusinessAccountRepository _repository;
 
         public BusinessAccountService(IBusinessAccountRepository repository) : base(repository)
         {
             _repository = repository;
-        }
-
-        public int GetBalance(int accountId)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

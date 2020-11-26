@@ -10,7 +10,6 @@ namespace FireBank.WebApi.App_Start
     using FireBank.Infra.Data.Repositories;
     using FireBank.Service.Services;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
@@ -69,10 +68,14 @@ namespace FireBank.WebApi.App_Start
             kernel.Bind<IStudentAccountRepository>().To<StudentAccountRepository>();
             kernel.Bind<IGiroAccountRepository>().To<GiroAccountRepository>();
             kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
+            kernel.Bind<IAccountRepository>().To<AccountRepository>();
 
             kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
-            //kernel.Bind<IAccountService>().To<AccountService>();
+            kernel.Bind<IBusinessAccountService>().To<BusinessAccountService>();
+            kernel.Bind<IStudentAccountService>().To<StudentAccountService>();
+            kernel.Bind<IGiroAccountService>().To<GiroAccountService>();
             kernel.Bind<ITransactionService>().To<TransactionService>();
+            kernel.Bind<IAccountService>().To<AccountService>();
         }
     }
 }

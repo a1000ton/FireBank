@@ -6,16 +6,11 @@ namespace FireBank.Service.Services
 {
     public class GiroAccountService : BaseService<GiroAccount>, IGiroAccountService
     {
-        private readonly IGiroAccountRepository _repository;
+        private new readonly IGiroAccountRepository _repository;
 
         public GiroAccountService(IGiroAccountRepository repository) : base(repository)
         {
             _repository = repository;
-        }
-
-        public int GetBalance(int accountId)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

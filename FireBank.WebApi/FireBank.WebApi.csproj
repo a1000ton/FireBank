@@ -266,6 +266,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FireBank.Application\FireBank.Application.csproj">
+      <Project>{9f4b1c8c-6968-4c9f-a70a-4cdd0113e076}</Project>
+      <Name>FireBank.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FireBank.Domain\FireBank.Domain.csproj">
       <Project>{e09540b1-cf2e-4e35-b727-bc58cadc3b55}</Project>
       <Name>FireBank.Domain</Name>

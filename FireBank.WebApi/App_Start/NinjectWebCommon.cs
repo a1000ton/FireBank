@@ -5,6 +5,8 @@ namespace FireBank.WebApi.App_Start
 {
     using System;
     using System.Web;
+    using FireBank.Application.Applications;
+    using FireBank.Application.Applications.Interfaces;
     using FireBank.Domain.Interfaces.Repository;
     using FireBank.Domain.Interfaces.Service;
     using FireBank.Infra.Data.Repositories;
@@ -68,6 +70,9 @@ namespace FireBank.WebApi.App_Start
 
             kernel.Bind<IAccountService>().To<AccountService>();
             kernel.Bind<ITransactionService>().To<TransactionService>();
+
+            kernel.Bind<IAccountApplication>().To<AccountApplication>();
+            kernel.Bind<ITransactionApplication>().To<TransactionApplication>();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using FireBank.Domain.Entities;
 using FireBank.Domain.Interfaces.Repository;
+using FireBank.Domain.Interfaces.Service;
 using FireBank.Service.Services;
 using Moq;
 using System;
@@ -43,7 +44,11 @@ namespace FireBank.Tests.Service
             var repositoryMock = new Mock<ITransactionRepository>();
             repositoryMock.Setup(r => r.Add(transaction)).Returns(addedTransaction);
 
-            var service = new TransactionService(repositoryMock.Object);
+            var serviceAccountMock = new Mock<IBaseAccountService<BaseAccount>>();
+            serviceAccountMock.Setup(s => s.GetBalance(It.IsAny<int>())).Returns(100);
+            serviceAccountMock.Setup(s => s.BalanceIsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+
+            var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
 
             var returnedTransaction = service.Add(transaction);
 
@@ -88,7 +93,9 @@ namespace FireBank.Tests.Service
             var repositoryMock = new Mock<ITransactionRepository>();
             repositoryMock.Setup(r => r.GetAll()).Returns(transactions);
 
-            var service = new TransactionService(repositoryMock.Object);
+            var serviceAccountMock = new Mock<IBaseAccountService<BaseAccount>>();
+
+            var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
 
             var returnedTransactions = service.GetAll();
 
@@ -118,7 +125,9 @@ namespace FireBank.Tests.Service
             var repositoryMock = new Mock<ITransactionRepository>();
             repositoryMock.Setup(r => r.GetById(transactionId)).Returns(transaction);
 
-            var service = new TransactionService(repositoryMock.Object);
+            var serviceAccountMock = new Mock<IBaseAccountService<BaseAccount>>();
+
+            var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
 
             var returnedTransaction = service.GetById(transactionId);
 

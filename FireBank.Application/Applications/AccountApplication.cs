@@ -2,7 +2,6 @@
 using FireBank.Application.Models;
 using FireBank.Domain.Entities;
 using FireBank.Domain.Interfaces.Service;
-using System;
 
 namespace FireBank.Application.Applications
 {
@@ -40,12 +39,43 @@ namespace FireBank.Application.Applications
 
         public AccountCreatedModel CreateGiroAccount(GiroAccountCreationModel account)
         {
-            throw new NotImplementedException();
+            var accountEntity = new Account()
+            {
+                Name = account.Name,
+                AccountType = new GiroAccount() { }
+            };
+
+            var addedAccount = _service.Add(accountEntity);
+
+            return new AccountCreatedModel()
+            {
+                Name = addedAccount.Name,
+                Type = new GiroAccountCreatedModel() { }
+            };
         }
 
         public AccountCreatedModel CreateStudentAccount(StudentAccountCreationModel account)
         {
-            throw new NotImplementedException();
+            var accountEntity = new Account()
+            {
+                Name = account.Name,
+                AccountType = new StudentAccount()
+                {
+                    StudentId = account.StudentId
+                }
+            };
+
+            var addedAccount = _service.Add(accountEntity);
+            var studentAccount = (StudentAccount)addedAccount.AccountType;
+
+            return new AccountCreatedModel()
+            {
+                Name = addedAccount.Name,
+                Type = new StudentAccountCreatedModel()
+                {
+                    StudentId = studentAccount.StudentId
+                }
+            };
         }
     }
 }

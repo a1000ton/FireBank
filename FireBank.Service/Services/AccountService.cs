@@ -1,6 +1,7 @@
 ﻿using FireBank.Domain.Entities;
 using FireBank.Domain.Interfaces.Repository;
 using FireBank.Domain.Interfaces.Service;
+using System;
 using System.Collections.Generic;
 
 namespace FireBank.Service.Services
@@ -18,6 +19,8 @@ namespace FireBank.Service.Services
         {
             if (obj.Transactions == null)
                 obj.Transactions = new List<Transaction>() { };
+
+            obj.CreatedAt = DateTime.Now;
 
             return _repository.Add(obj);
         }

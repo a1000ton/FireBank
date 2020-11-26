@@ -45,5 +45,67 @@ namespace FireBank.Tests.App
                 Assert.Equal(addedAccountType.BusinessId, expectedBusinessAccount.BusinessId);
             }
         }
+
+        [Fact]
+        public void Create_WhenPassValidStudentAccount_ShouldCreateTheNewAccount()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var studentId = 11;
+                var name = Guid.NewGuid().ToString();
+
+                var accountToBeCreated = new StudentAccountCreationModel()
+                {
+                    StudentId = studentId,
+                    Name = name,
+                };
+
+                var expectedStudentAccount = new StudentAccountCreatedModel()
+                {
+                    StudentId = studentId,
+                };
+
+                var accountRepository = new AccountRepository(context);
+                var accountService = new AccountService(accountRepository);
+                var accountApp = new AccountApplication(accountService);
+
+                var addedAccount = accountApp.CreateStudentAccount(accountToBeCreated);
+                var addedAccountType = (StudentAccountCreatedModel)addedAccount.Type;
+
+                Assert.Equal(addedAccount.Name, name);
+                Assert.Equal(addedAccount.Type.GetType(), expectedStudentAccount.GetType());
+                Assert.Equal(addedAccountType.StudentId, expectedStudentAccount.StudentId);
+            }
+        }
+
+        [Fact]
+        public void Create_WhenPassValidGiroAccount_ShouldCreateTheNewAccount()
+        {
+            var connection = DbConnectionFactory.CreateTransient();
+
+            using (var context = new FireBankContext(connection))
+            {
+                var name = Guid.NewGuid().ToString();
+
+                var accountToBeCreated = new GiroAccountCreationModel()
+                {
+                    Name = name,
+                };
+
+                var expectedGiroAccount = new GiroAccountCreatedModel(){};
+
+                var accountRepository = new AccountRepository(context);
+                var accountService = new AccountService(accountRepository);
+                var accountApp = new AccountApplication(accountService);
+
+                var addedAccount = accountApp.CreateGiroAccount(accountToBeCreated);
+                var addedAccountType = (GiroAccountCreatedModel)addedAccount.Type;
+
+                Assert.Equal(addedAccount.Name, name);
+                Assert.Equal(addedAccount.Type.GetType(), expectedGiroAccount.GetType());
+            }
+        }
     }
 }

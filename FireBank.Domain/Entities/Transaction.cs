@@ -13,11 +13,18 @@ namespace FireBank.Domain.Entities
         public virtual Account Account { get; set; }
         [ForeignKey("Account")]
         public int AccountId { get; set; }
+        public TransactionStatus Status { get; set; }
     }
 
     public enum TransactionType
     {
         Withdrawal = 0,
         Deposit = 1,
+    }
+
+    public enum TransactionStatus
+    {
+        Cancelled = 0,
+        Completed = 1,
     }
 }

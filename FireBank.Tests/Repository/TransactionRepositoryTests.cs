@@ -48,14 +48,16 @@ namespace FireBank.Tests.Repository
             using (var context = new FireBankContext(connection))
             {
                 var repository = new TransactionRepository(context);
+                var account = new AccountRepository(context).Add(new Account()
+                {
+                    AccountType = new StudentAccount() { StudentId = 1 },
+                    CreatedAt = DateTime.Now,
+                    Name = Guid.NewGuid().ToString()
+                });
 
                 repository.Add(new Transaction()
                 {
-                    Account = new Account()
-                    {
-                        CreatedAt = DateTime.Now,
-                        Name = Guid.NewGuid().ToString()
-                    },
+                    AccountId = account.Id,
                     Amount = 10,
                     Balance = 80,
                     Date = DateTime.Now,
@@ -64,11 +66,7 @@ namespace FireBank.Tests.Repository
 
                 repository.Add(new Transaction()
                 {
-                    Account = new Account()
-                    {
-                        CreatedAt = DateTime.Now,
-                        Name = Guid.NewGuid().ToString()
-                    },
+                    AccountId = account.Id,
                     Amount = 10,
                     Balance = 80,
                     Date = DateTime.Now,
@@ -77,50 +75,16 @@ namespace FireBank.Tests.Repository
 
                 repository.Add(new Transaction()
                 {
-                    Account = new Account()
-                    {
-                        CreatedAt = DateTime.Now,
-                        Name = Guid.NewGuid().ToString()
-                    },
+                    AccountId = account.Id,
                     Amount = 10,
                     Balance = 80,
                     Date = DateTime.Now,
                     Type = TransactionType.Deposit
                 });
 
-                var transactions = repository.GetAll();
+                var transactions = repository.GetAll(account.Id);
 
                 Assert.Equal(3, transactions.Count());
-            }
-        }
-
-        [Fact]
-        public void GetById_WhenPassValidId_ShouldReturnFoundObject()
-        {
-            var connection = DbConnectionFactory.CreateTransient();
-
-            using (var context = new FireBankContext(connection))
-            {
-                var transaction = new Transaction()
-                {
-                    Account = new Account()
-                    {
-                        CreatedAt = DateTime.Now,
-                        Name = Guid.NewGuid().ToString()
-                    },
-                    Amount = 10,
-                    Balance = 80,
-                    Date = DateTime.Now,
-                    Type = TransactionType.Deposit
-                };
-
-                var repository = new TransactionRepository(context);
-
-                var addedTransaction = repository.Add(transaction);
-                var foundTransaction = repository.GetById(1);
-
-                Assert.Equal(addedTransaction.Id, foundTransaction.Id);
-                Assert.Equal(addedTransaction.Balance, foundTransaction.Balance);
             }
         }
     }

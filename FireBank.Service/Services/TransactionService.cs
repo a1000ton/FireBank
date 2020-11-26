@@ -50,14 +50,9 @@ namespace FireBank.Service.Services
             return obj;
         }
 
-        public IEnumerable<Transaction> GetAll()
+        public IEnumerable<Transaction> GetAll(int accountId)
         {
-            return _repository.GetAll();
-        }
-
-        public Transaction GetById(int id)
-        {
-            return _repository.GetById(id);
+            return _repository.GetAll(accountId);
         }
 
         private int Withdrawal(int amount, int balance)

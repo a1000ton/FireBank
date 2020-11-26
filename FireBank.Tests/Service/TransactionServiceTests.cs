@@ -59,6 +59,7 @@ namespace FireBank.Tests.Service
         [Fact]
         public void GetAll_WhenCalled_ShouldShowAllObjects()
         {
+            var accountId = 3;
             var transactionOne = new Transaction()
             {
                 Account = new Account()
@@ -66,6 +67,7 @@ namespace FireBank.Tests.Service
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
                 },
+                AccountId = accountId,
                 Amount = 10,
                 Balance = 80,
                 Date = DateTime.Now,
@@ -79,6 +81,7 @@ namespace FireBank.Tests.Service
                     CreatedAt = DateTime.Now,
                     Name = Guid.NewGuid().ToString()
                 },
+                AccountId = accountId,
                 Amount = 15,
                 Balance = 90,
                 Date = DateTime.Now,
@@ -91,48 +94,16 @@ namespace FireBank.Tests.Service
             };
 
             var repositoryMock = new Mock<ITransactionRepository>();
-            repositoryMock.Setup(r => r.GetAll()).Returns(transactions);
+            repositoryMock.Setup(r => r.GetAll(accountId)).Returns(transactions);
 
             var serviceAccountMock = new Mock<IAccountService>();
 
             var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
 
-            var returnedTransactions = service.GetAll();
+            var returnedTransactions = service.GetAll(accountId);
 
-            repositoryMock.Verify(rep => rep.GetAll(), Times.Once());
+            repositoryMock.Verify(rep => rep.GetAll(accountId), Times.Once());
             Assert.Equal(transactions, returnedTransactions);
-        }
-
-        [Fact]
-        public void GetById_WhenPassValidId_ShouldReturnFoundObject()
-        {
-            var transactionId = 3;
-
-            var transaction = new Transaction()
-            {
-                Account = new Account()
-                {
-                    CreatedAt = DateTime.Now,
-                    Name = Guid.NewGuid().ToString()
-                },
-                Amount = 10,
-                Balance = 80,
-                Date = DateTime.Now,
-                Type = TransactionType.Deposit,
-                Id = transactionId
-            };
-
-            var repositoryMock = new Mock<ITransactionRepository>();
-            repositoryMock.Setup(r => r.GetById(transactionId)).Returns(transaction);
-
-            var serviceAccountMock = new Mock<IAccountService>();
-
-            var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
-
-            var returnedTransaction = service.GetById(transactionId);
-
-            repositoryMock.Verify(rep => rep.GetById(transactionId), Times.Once());
-            Assert.Equal(transaction, returnedTransaction);
         }
     }
 }

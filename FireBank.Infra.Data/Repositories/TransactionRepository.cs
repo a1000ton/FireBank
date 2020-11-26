@@ -23,14 +23,9 @@ namespace FireBank.Infra.Data.Repositories
             return obj;
         }
 
-        public IEnumerable<Transaction> GetAll()
+        public IEnumerable<Transaction> GetAll(int accountId)
         {
-            return _db.Set<Transaction>().ToList();
-        }
-
-        public Transaction GetById(int id)
-        {
-            return _db.Set<Transaction>().Find(id);
+            return _db.Set<Transaction>().Where(transaction => transaction.AccountId == accountId).ToList();
         }
     }
 }

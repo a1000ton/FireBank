@@ -4,6 +4,6 @@ namespace FireBank.Domain.Interfaces.Service
 {
     public interface IAccountService : IBaseService<Account>
     {
-        int GetBalance(int id);
+        int GetBalance(int accountId);
     }
 }

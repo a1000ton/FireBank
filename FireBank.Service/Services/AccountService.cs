@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace FireBank.Service.Services
 {
-    public class AccountService : BaseService<Account>, IAccountService
+    public class AccountService : BaseService<Account>, IAccountService<Account>
     {
         private readonly IAccountRepository _repository;
 

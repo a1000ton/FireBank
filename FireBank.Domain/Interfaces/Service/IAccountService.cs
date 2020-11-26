@@ -2,7 +2,7 @@
 
 namespace FireBank.Domain.Interfaces.Service
 {
-    public interface IAccountService : IBaseService<Account>
+    public interface IAccountService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
         int GetBalance(int accountId);
     }

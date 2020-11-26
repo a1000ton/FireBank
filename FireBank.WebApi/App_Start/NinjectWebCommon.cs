@@ -71,7 +71,7 @@ namespace FireBank.WebApi.App_Start
             kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
 
             kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
-            kernel.Bind<IAccountService>().To<AccountService>();
+            //kernel.Bind<IAccountService>().To<AccountService>();
             kernel.Bind<ITransactionService>().To<TransactionService>();
         }
     }

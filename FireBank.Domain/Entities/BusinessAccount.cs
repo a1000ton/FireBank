@@ -3,9 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FireBank.Domain.Entities
 {
-    public class BusinessAccount : BaseAccount
+    public class BusinessAccount : IAccountType
     {
         public int BusinessId { get; set; }
+
+        [Key]
+        [ForeignKey("Account")]
+        public int AccountId { get; set; }
+
+        public virtual Account Account { get; set; }
 
         public int BalanceNegativeLimit()
         {

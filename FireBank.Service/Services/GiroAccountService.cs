@@ -6,11 +6,8 @@ namespace FireBank.Service.Services
 {
     public class GiroAccountService : BaseAccountService<GiroAccount>, IGiroAccountService
     {
-        private new readonly IGiroAccountRepository _repository;
-
         public GiroAccountService(IGiroAccountRepository repository) : base(repository)
         {
-            _repository = repository;
         }
     }
 }

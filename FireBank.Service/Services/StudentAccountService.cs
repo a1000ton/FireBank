@@ -6,11 +6,8 @@ namespace FireBank.Service.Services
 {
     public class StudentAccountService : BaseAccountService<StudentAccount>, IStudentAccountService
     {
-        private new readonly IStudentAccountRepository _repository;
-
         public StudentAccountService(IStudentAccountRepository repository) : base(repository)
         {
-            _repository = repository;
         }
     }
 }

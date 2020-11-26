@@ -6,11 +6,8 @@ namespace FireBank.Service.Services
 {
     public class BusinessAccountService : BaseAccountService<BusinessAccount>, IBusinessAccountService
     {
-        private new readonly IBusinessAccountRepository _repository;
-
         public BusinessAccountService(IBusinessAccountRepository repository) : base(repository)
         {
-            _repository = repository;
         }
     }
 }

@@ -1,7 +1,11 @@
-﻿namespace FireBank.Application.Models
+﻿using System;
+
+namespace FireBank.Application.Models
 {
     public class AccountCreatedModel
     {
+        public int Id { get; set; }
+        public DateTime CreatedAt { get; set; }
         public string Name { get; set; }
         public IAccountCreatedModelType Type { get; set; }
     }

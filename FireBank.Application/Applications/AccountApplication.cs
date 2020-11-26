@@ -29,6 +29,8 @@ namespace FireBank.Application.Applications
 
             return new AccountCreatedModel()
             {
+                Id = addedAccount.Id,
+                CreatedAt = addedAccount.CreatedAt,
                 Name = addedAccount.Name,
                 Type = new BusinessAccountCreatedModel()
                 {
@@ -49,6 +51,8 @@ namespace FireBank.Application.Applications
 
             return new AccountCreatedModel()
             {
+                Id = addedAccount.Id,
+                CreatedAt = addedAccount.CreatedAt,
                 Name = addedAccount.Name,
                 Type = new GiroAccountCreatedModel() { }
             };
@@ -70,6 +74,8 @@ namespace FireBank.Application.Applications
 
             return new AccountCreatedModel()
             {
+                Id = addedAccount.Id,
+                CreatedAt = addedAccount.CreatedAt,
                 Name = addedAccount.Name,
                 Type = new StudentAccountCreatedModel()
                 {

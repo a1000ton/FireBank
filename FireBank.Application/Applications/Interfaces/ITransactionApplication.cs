@@ -5,5 +5,6 @@ namespace FireBank.Application.Applications.Interfaces
     public interface ITransactionApplication
     {
         TransactionCreatedModel Create(TransactionCreationModel transaction);
+        TransactionsModel List(int accountId);
     }
 }

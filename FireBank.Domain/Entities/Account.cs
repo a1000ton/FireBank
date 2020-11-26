@@ -8,7 +8,7 @@ namespace FireBank.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
-        public IEnumerable<Transaction> Transactions { get; set; }
+        public virtual ICollection<Transaction> Transactions { get; set; }
         public IAccountType AccountType { get; set; }
     }
 }

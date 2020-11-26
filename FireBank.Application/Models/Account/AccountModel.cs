@@ -11,22 +11,22 @@ namespace FireBank.Application.Models
         public IAccountCreatedModelType Type { get; set; }
     }
 
-    public interface IAccountCreatedModelType
+    public interface IAccountModelType
     {
 
     }
 
-    public class BusinessAccountCreatedModel : IAccountCreatedModelType
+    public class BusinessAccountModel : IAccountModelType
     {
         public int BusinessId { get; set; }
     }
 
-    public class StudentAccountCreatedModel : IAccountCreatedModelType
+    public class StudentAccountModel : IAccountModelType
     {
         public int StudentId { get; set; }
     }
 
-    public class GiroAccountCreatedModel : IAccountCreatedModelType
+    public class GiroAccountModel : IAccountModelType
     {
 
     }

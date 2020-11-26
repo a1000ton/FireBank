@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FireBank.Domain.Entities
 {
@@ -10,6 +11,8 @@ namespace FireBank.Domain.Entities
         public TransactionType Type { get; set; }
         public int Balance { get; set; }
         public virtual Account Account { get; set; }
+        [ForeignKey("Account")]
+        public int AccountId { get; set; }
     }
 
     public enum TransactionType

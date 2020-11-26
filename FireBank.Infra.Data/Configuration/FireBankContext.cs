@@ -30,9 +30,6 @@ namespace FireBank.Infra.Data.Configuration
 
             modelBuilder.Properties<string>().Configure(p => p.HasColumnType("varchar"));
             modelBuilder.Properties<string>().Configure(p => p.HasMaxLength(100));
-
-            modelBuilder.Configurations.Add(new StudentAccountConfiguration());
-            modelBuilder.Configurations.Add(new BusinessAccountConfiguration());
         }
     }
 }

@@ -51,8 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\BusinessAccountConfiguration.cs" />
-    <Compile Include="Configuration\StudentAccountConfiguration.cs" />
     <Compile Include="Configuration\FireBankContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

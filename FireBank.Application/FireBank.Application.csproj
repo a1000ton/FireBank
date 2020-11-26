@@ -46,13 +46,16 @@
     <Compile Include="Applications\Interfaces\IAccountApplication.cs" />
     <Compile Include="Applications\Interfaces\ITransactionApplication.cs" />
     <Compile Include="Applications\TransactionApplication.cs" />
-    <Compile Include="Models\AccountCreatedModel.cs" />
-    <Compile Include="Models\AccountCreationModel.cs" />
-    <Compile Include="Models\BusinessAccountCreationModel.cs" />
-    <Compile Include="Models\GiroAccountCreationModel.cs" />
-    <Compile Include="Models\StudentAccountCreationModel.cs" />
-    <Compile Include="Models\TransactionCreatedModel.cs" />
-    <Compile Include="Models\TransactionCreationModel.cs" />
+    <Compile Include="Models\Account\AccountCreatedModel.cs" />
+    <Compile Include="Models\Account\AccountCreationModel.cs" />
+    <Compile Include="Models\Account\AccountModel.cs" />
+    <Compile Include="Models\Account\BusinessAccountCreationModel.cs" />
+    <Compile Include="Models\Account\GiroAccountCreationModel.cs" />
+    <Compile Include="Models\Account\StudentAccountCreationModel.cs" />
+    <Compile Include="Models\Transaction\TransactionCreatedModel.cs" />
+    <Compile Include="Models\Transaction\TransactionCreationModel.cs" />
+    <Compile Include="Models\Transaction\TransactionModel.cs" />
+    <Compile Include="Models\Transaction\TransactionsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

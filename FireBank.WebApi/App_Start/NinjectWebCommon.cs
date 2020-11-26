@@ -65,7 +65,9 @@ namespace FireBank.WebApi.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
-            kernel.Bind<IAccountRepository>().To<AccountRepository>();
+            kernel.Bind<IBusinessAccountRepository>().To<BusinessAccountRepository>();
+            kernel.Bind<IStudentAccountRepository>().To<StudentAccountRepository>();
+            kernel.Bind<IGiroAccountRepository>().To<GiroAccountRepository>();
             kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
 
             kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));

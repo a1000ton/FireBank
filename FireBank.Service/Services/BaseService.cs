@@ -21,12 +21,12 @@ namespace FireBank.Service.Services
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return _repository.GetAll();
         }
 
         public TEntity GetById(int id)
         {
-            throw new NotImplementedException();
+            return _repository.GetById(id);
         }
 
         public void Remove(TEntity obj)

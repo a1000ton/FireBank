@@ -11,7 +11,7 @@ namespace FireBank.Tests.Repository
     public class BaseRepositoryTests
     {
         [Fact]
-        public void Add_WhenPassObject_ShouldAddAndSaveChanges()
+        public void Add_WhenPassObject_ShouldAddObject()
         {
             var connection = DbConnectionFactory.CreateTransient();
 

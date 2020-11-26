@@ -3,6 +3,7 @@ using FireBank.Domain.Interfaces.Repository;
 using FireBank.Service.Services;
 using Moq;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace FireBank.Tests.Service
@@ -10,7 +11,7 @@ namespace FireBank.Tests.Service
     public class BaseServiceTests
     {
         [Fact]
-        public void Add_WhenPassObject_ShouldAddOnRepository()
+        public void Add_WhenPassObject_ShouldAddObject()
         {
             var account = new Account()
             {
@@ -24,15 +25,69 @@ namespace FireBank.Tests.Service
                 CreatedAt = DateTime.Now
             };
 
-            var repositoryMock  = new Mock<IBaseRepository<Account>>();
+            var repositoryMock = new Mock<IBaseRepository<Account>>();
             repositoryMock.Setup(r => r.Add(account)).Returns(returnedAccount);
 
             var service = new BaseService<Account>(repositoryMock.Object);
 
-            var addedAccount =  service.Add(account);
+            var addedAccount = service.Add(account);
 
             repositoryMock.Verify(rep => rep.Add(account), Times.Once());
             Assert.Equal(addedAccount, returnedAccount);
+        }
+
+        [Fact]
+        public void GetAll_WhenCalled_ShouldShowAllObjects()
+        {
+            var accountOne = new Account()
+            {
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var accountTwo = new Account()
+            {
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var accounts = new List<Account>()
+            {
+                accountOne, accountTwo
+            };
+
+            var repositoryMock = new Mock<IBaseRepository<Account>>();
+            repositoryMock.Setup(r => r.GetAll()).Returns(accounts);
+
+            var service = new BaseService<Account>(repositoryMock.Object);
+
+            var returnedAccounts = service.GetAll();
+
+            repositoryMock.Verify(rep => rep.GetAll(), Times.Once());
+            Assert.Equal(accounts, returnedAccounts);
+        }
+
+        [Fact]
+        public void GetById_WhenPassValidId_ShouldReturnFoundObject()
+        {
+            var accountId = 3;
+           
+            var account = new Account()
+            {
+                Id = accountId,
+                Name = Guid.NewGuid().ToString(),
+                CreatedAt = DateTime.Now
+            };
+
+            var repositoryMock = new Mock<IBaseRepository<Account>>();
+            repositoryMock.Setup(r => r.GetById(accountId)).Returns(account);
+
+            var service = new BaseService<Account>(repositoryMock.Object);
+
+            var returnedAccount = service.GetById(accountId);
+
+            repositoryMock.Verify(rep => rep.GetById(accountId), Times.Once());
+            Assert.Equal(account, returnedAccount);
         }
     }
 }

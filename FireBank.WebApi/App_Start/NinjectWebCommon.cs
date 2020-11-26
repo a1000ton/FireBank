@@ -63,19 +63,19 @@ namespace FireBank.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
-            kernel.Bind<IBusinessAccountRepository>().To<BusinessAccountRepository>();
-            kernel.Bind<IStudentAccountRepository>().To<StudentAccountRepository>();
-            kernel.Bind<IGiroAccountRepository>().To<GiroAccountRepository>();
-            kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
-            kernel.Bind<IAccountRepository>().To<AccountRepository>();
+            //kernel.Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
+            //kernel.Bind<IBusinessAccountRepository>().To<BusinessAccountRepository>();
+            //kernel.Bind<IStudentAccountRepository>().To<StudentAccountRepository>();
+            //kernel.Bind<IGiroAccountRepository>().To<GiroAccountRepository>();
+            //kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
+            //kernel.Bind<IAccountRepository>().To<AccountRepository>();
 
-            kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
-            kernel.Bind<IBusinessAccountService>().To<BusinessAccountService>();
-            kernel.Bind<IStudentAccountService>().To<StudentAccountService>();
-            kernel.Bind<IGiroAccountService>().To<GiroAccountService>();
-            kernel.Bind<ITransactionService>().To<TransactionService>();
-            kernel.Bind<IAccountService>().To<AccountService>();
+            //kernel.Bind(typeof(IBaseAccountService<>)).To(typeof(BaseService<>));
+            //kernel.Bind<IBusinessAccountService>().To<BusinessAccountService>();
+            //kernel.Bind<IStudentAccountService>().To<StudentAccountService>();
+            //kernel.Bind<IGiroAccountService>().To<GiroAccountService>();
+            //kernel.Bind<ITransactionService>().To<TransactionService>();
+            //kernel.Bind<IAccountService>().To<AccountService>();
         }
     }
 }

@@ -60,7 +60,7 @@
     <Compile Include="Repositories\OldRepos\GiroAccountRepository.cs" />
     <Compile Include="Repositories\BaseAccountRepository.cs" />
     <Compile Include="Repositories\OldRepos\StudentAccountRepository.cs" />
-    <Compile Include="Repositories\OldRepos\TransactionRepository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

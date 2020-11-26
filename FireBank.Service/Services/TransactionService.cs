@@ -4,9 +4,9 @@ using FireBank.Domain.Interfaces.Service;
 
 namespace FireBank.Service.Services
 {
-    public class TransactionService : BaseService<Transaction>, ITransactionService
+    public class TransactionService
     {
-        public TransactionService(ITransactionRepository repository) : base(repository)
+        public TransactionService(ITransactionRepository repository)
         {
 
         }

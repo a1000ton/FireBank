@@ -6,7 +6,6 @@ namespace FireBank.Application.Models
     {
         public int Amount { get; set; }
         public TransactionType Type { get; set; }
-        public int Balance { get; set; }
         public int AccountId { get; set; }
     }
 }

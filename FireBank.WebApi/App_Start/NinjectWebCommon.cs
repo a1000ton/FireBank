@@ -5,21 +5,24 @@ namespace FireBank.WebApi.App_Start
 {
     using System;
     using System.Web;
-
+    using FireBank.Domain.Interfaces.Repository;
+    using FireBank.Domain.Interfaces.Service;
+    using FireBank.Infra.Data.Repositories;
+    using FireBank.Service.Services;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Web.Common.WebHost;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application.
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
@@ -61,6 +64,13 @@ namespace FireBank.WebApi.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind(typeof(IBaseRepository<>)).To(typeof(BaseRepository<>));
+            kernel.Bind<IAccountRepository>().To<AccountRepository>();
+            kernel.Bind<ITransactionRepository>().To<TransactionRepository>();
+
+            kernel.Bind(typeof(IBaseService<>)).To(typeof(BaseService<>));
+            kernel.Bind<IAccountService>().To<AccountService>();
+            kernel.Bind<ITransactionService>().To<TransactionService>();
         }
     }
 }

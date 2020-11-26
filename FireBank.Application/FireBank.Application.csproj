@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -43,6 +44,11 @@
   <ItemGroup>
     <Compile Include="Applications\Interfaces\ITransactionApplication.cs" />
     <Compile Include="Applications\TransactionApplication.cs" />
+    <Compile Include="Models\AccountCreatedModel.cs" />
+    <Compile Include="Models\AccountCreationModel.cs" />
+    <Compile Include="Models\BusinessAccountCreationModel.cs" />
+    <Compile Include="Models\GiroAccountCreationModel.cs" />
+    <Compile Include="Models\StudentAccountCreationModel.cs" />
     <Compile Include="Models\TransactionCreatedModel.cs" />
     <Compile Include="Models\TransactionCreationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

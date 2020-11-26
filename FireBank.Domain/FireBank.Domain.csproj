@@ -52,6 +52,9 @@
     <Compile Include="Entities\Transaction.cs" />
     <Compile Include="Interfaces\Repository\IAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repository\IBusinessAccountRepository.cs" />
+    <Compile Include="Interfaces\Repository\IGiroAccountRepository.cs" />
+    <Compile Include="Interfaces\Repository\IStudentAccountRepository.cs" />
     <Compile Include="Interfaces\Repository\ITransactionRepository.cs" />
     <Compile Include="Interfaces\Service\IAccountService.cs" />
     <Compile Include="Interfaces\Service\IBaseService.cs" />

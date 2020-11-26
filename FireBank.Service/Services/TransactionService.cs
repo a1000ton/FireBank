@@ -16,17 +16,17 @@ namespace FireBank.Service.Services
 
         public Transaction Add(Transaction obj)
         {
-            throw new System.NotImplementedException();
+            return _repository.Add(obj);
         }
 
         public IEnumerable<Transaction> GetAll()
         {
-            throw new System.NotImplementedException();
+            return _repository.GetAll();
         }
 
         public Transaction GetById(int id)
         {
-            throw new System.NotImplementedException();
+            return _repository.GetById(id);
         }
     }
 }

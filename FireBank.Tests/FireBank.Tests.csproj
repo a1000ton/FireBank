@@ -89,6 +89,7 @@
     <Compile Include="Repository\BaseAccountRepositoryTests.cs" />
     <Compile Include="Repository\TransactionRepositoryTests.cs" />
     <Compile Include="Service\BaseAccountServiceTests.cs" />
+    <Compile Include="Service\TransactionServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -68,6 +68,8 @@
     <Compile Include="Interfaces\Service\IGiroAccountService.cs" />
     <Compile Include="Interfaces\Service\IStudentAccountService.cs" />
     <Compile Include="Interfaces\Service\ITransactionService.cs" />
+    <Compile Include="Interfaces\Service\New\IAccountService.cs" />
+    <Compile Include="Interfaces\Service\New\ITransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

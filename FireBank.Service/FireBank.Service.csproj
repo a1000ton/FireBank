@@ -45,6 +45,8 @@
     <Compile Include="Services\BaseAccountService.cs" />
     <Compile Include="Services\BusinessAccountService.cs" />
     <Compile Include="Services\GiroAccountService.cs" />
+    <Compile Include="Services\New\AccountService.cs" />
+    <Compile Include="Services\New\TransactionService.cs" />
     <Compile Include="Services\StudentAccountService.cs" />
     <Compile Include="Services\TransactionService.cs" />
   </ItemGroup>

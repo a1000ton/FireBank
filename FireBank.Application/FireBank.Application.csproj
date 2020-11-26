@@ -41,7 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applications\Interfaces\ITransactionApplication.cs" />
+    <Compile Include="Applications\TransactionApplication.cs" />
+    <Compile Include="Models\TransactionCreatedModel.cs" />
+    <Compile Include="Models\TransactionCreationModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FireBank.Domain\FireBank.Domain.csproj">
+      <Project>{e09540b1-cf2e-4e35-b727-bc58cadc3b55}</Project>
+      <Name>FireBank.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FireBank.Service\FireBank.Service.csproj">
+      <Project>{a8befafd-99a8-4317-8b88-cfe70dfc7949}</Project>
+      <Name>FireBank.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

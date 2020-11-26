@@ -1,6 +1,5 @@
 ﻿using FireBank.Domain.Interfaces.Repository;
 using FireBank.Domain.Interfaces.Service;
-using System;
 using System.Collections.Generic;
 
 namespace FireBank.Service.Services

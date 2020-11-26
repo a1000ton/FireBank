@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.WebApi", "FireBank
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.Service", "FireBank.Service\FireBank.Service.csproj", "{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FireBank.Application", "FireBank.Application\FireBank.Application.csproj", "{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{F0C5B169-D0A9-4C6A-8925-3C216B45B996} = {B2CF7828-9811-4861-BAD5-76AC8B4AE359}
 		{BA7815CF-F4C1-4D18-8E16-92C33E3CA519} = {A8BC1941-8514-4535-B858-4B847F413AB6}
 		{A8BEFAFD-99A8-4317-8B88-CFE70DFC7949} = {930D6F7D-667E-4371-8BA4-053336040F67}
+		{9F4B1C8C-6968-4C9F-A70A-4CDD0113E076} = {54482D7A-4A42-4319-9ACC-0A624AF89A21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A1DF3D2D-3376-4C70-951F-B1D5B97756FC}

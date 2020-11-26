@@ -84,6 +84,24 @@ namespace FireBank.Tests.Service
         }
 
         [Fact]
+        public void GetBalance_WhenCalled_ShouldReturnRepositoryBalance()
+        {
+            var currentBalance = 1000;
+            var accountId = 5;
+
+            var repositoryMock = new Mock<IBaseAccountRepository<BusinessAccount>>();
+            repositoryMock.Setup(r => r.GetBalance(accountId)).Returns(currentBalance);
+
+            var service = new BaseAccountService<BusinessAccount>(repositoryMock.Object);
+            var returnedBalance = service.GetBalance(accountId);
+
+            Assert.Equal(returnedBalance, currentBalance);
+            repositoryMock.Verify(r => r.GetBalance(accountId), Times.Once());
+        }
+
+        //GetBalance
+
+        [Fact]
         public void GetById_WhenPassValidId_ShouldReturnFoundObject()
         {
             var accountId = 3;

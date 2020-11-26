@@ -4,7 +4,7 @@ using FireBank.Domain.Interfaces.Service;
 
 namespace FireBank.Service.Services
 {
-    public class StudentAccountService : BaseService<StudentAccount>, IStudentAccountService
+    public class StudentAccountService : BaseAccountService<StudentAccount>, IStudentAccountService
     {
         private new readonly IStudentAccountRepository _repository;
 

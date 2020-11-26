@@ -1,5 +1,5 @@
 ﻿using FireBank.Domain.Entities;
-using FireBank.Domain.Interfaces.Repository.NewRepos;
+using FireBank.Domain.Interfaces.Repository;
 using FireBank.Infra.Data.Configuration;
 using System.Collections.Generic;
 using System.Data.Entity;

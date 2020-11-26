@@ -4,7 +4,7 @@ using FireBank.Domain.Interfaces.Service;
 
 namespace FireBank.Service.Services
 {
-    public class GiroAccountService : BaseService<GiroAccount>, IGiroAccountService
+    public class GiroAccountService : BaseAccountService<GiroAccount>, IGiroAccountService
     {
         private new readonly IGiroAccountRepository _repository;
 

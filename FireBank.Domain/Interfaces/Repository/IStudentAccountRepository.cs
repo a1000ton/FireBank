@@ -2,7 +2,7 @@
 
 namespace FireBank.Domain.Interfaces.Repository
 {
-    public interface IAccountRepository : IBaseRepository<Account>
+    public interface IStudentAccountRepository : IBaseAccountRepository<StudentAccount>
     {
     }
 }

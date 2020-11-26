@@ -54,12 +54,10 @@
     <Compile Include="Configuration\FireBankContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\OldRepos\AccountRepository.cs" />
-    <Compile Include="Repositories\OldRepos\BaseRepository.cs" />
-    <Compile Include="Repositories\OldRepos\BusinessAccountRepository.cs" />
-    <Compile Include="Repositories\OldRepos\GiroAccountRepository.cs" />
+    <Compile Include="Repositories\BusinessAccountRepository.cs" />
+    <Compile Include="Repositories\GiroAccountRepository.cs" />
     <Compile Include="Repositories\BaseAccountRepository.cs" />
-    <Compile Include="Repositories\OldRepos\StudentAccountRepository.cs" />
+    <Compile Include="Repositories\StudentAccountRepository.cs" />
     <Compile Include="Repositories\TransactionRepository.cs" />
   </ItemGroup>
   <ItemGroup>

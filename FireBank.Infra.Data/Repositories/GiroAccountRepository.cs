@@ -4,9 +4,9 @@ using FireBank.Infra.Data.Configuration;
 
 namespace FireBank.Infra.Data.Repositories
 {
-    public class AccountRepository : BaseRepository<Account>, IAccountRepository
+    public class GiroAccountRepository : BaseAccountRepository<GiroAccount>, IGiroAccountRepository
     {
-        public AccountRepository(FireBankContext db) : base(db)
+        public GiroAccountRepository(FireBankContext db) : base(db)
         {
 
         }

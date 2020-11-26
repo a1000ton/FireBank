@@ -1,14 +1,14 @@
 ﻿using FireBank.Domain.Interfaces.Repository;
 using FireBank.Domain.Interfaces.Service;
+using System;
 using System.Collections.Generic;
-
 namespace FireBank.Service.Services
 {
-    public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
+    public class BaseAccountService<TEntity> : IBaseAccountService<TEntity> where TEntity : class
     {
-        public readonly IBaseRepository<TEntity> _repository;
+        private readonly IBaseAccountRepository<TEntity> _repository;
 
-        public BaseService(IBaseRepository<TEntity> repository)
+        public BaseAccountService(IBaseAccountRepository<TEntity> repository)
         {
             _repository = repository;
         }

@@ -2,7 +2,7 @@
 
 namespace FireBank.Domain.Interfaces.Repository
 {
-    public interface IBusinessAccountRepository : IBaseRepository<BusinessAccount>
+    public interface IBusinessAccountRepository : IBaseAccountRepository<BusinessAccount>
     {
     }
 }

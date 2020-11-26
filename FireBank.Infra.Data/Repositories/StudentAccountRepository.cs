@@ -4,7 +4,7 @@ using FireBank.Infra.Data.Configuration;
 
 namespace FireBank.Infra.Data.Repositories
 {
-    public class StudentAccountRepository : BaseRepository<StudentAccount>, IStudentAccountRepository
+    public class StudentAccountRepository : BaseAccountRepository<StudentAccount>, IStudentAccountRepository
     {
         public StudentAccountRepository(FireBankContext db) : base(db)
         {

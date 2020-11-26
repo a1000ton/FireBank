@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace FireBank.Domain.Interfaces.Repository.NewRepos
+namespace FireBank.Domain.Interfaces.Repository
 {
-    public interface IBaseAccountRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public interface IBaseAccountRepository<TEntity> where TEntity : class
     {
         int GetBalance(int accountId);
+
+        TEntity Add(TEntity obj);
+        TEntity GetById(int id);
+        IEnumerable<TEntity> GetAll();
+        TEntity Update(TEntity obj);
+        void Remove(TEntity obj);
     }
 }

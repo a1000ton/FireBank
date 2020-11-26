@@ -2,7 +2,7 @@
 
 namespace FireBank.Domain.Interfaces.Service
 {
-    public interface IBusinessAccountService : IBaseService<BusinessAccount>
+    public interface IBusinessAccountService : IBaseAccountService<BusinessAccount>
     {
 
     }

@@ -87,10 +87,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BaseAccountRepositoryTests.cs" />
-    <Compile Include="Repository\BaseRepositoryTests.cs" />
     <Compile Include="Repository\TransactionRepositoryTests.cs" />
-    <Compile Include="Service\AccountServiceTests.cs" />
-    <Compile Include="Service\BaseServiceTests.cs" />
+    <Compile Include="Service\BaseAccountServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

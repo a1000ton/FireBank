@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\New\AccountService.cs" />
-    <Compile Include="Services\New\TransactionService.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\TransactionService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FireBank.Domain\FireBank.Domain.csproj">

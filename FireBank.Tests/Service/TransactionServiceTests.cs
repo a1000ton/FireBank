@@ -1,13 +1,13 @@
 ﻿using FireBank.Domain.Entities;
-using FireBank.Domain.Interfaces.Repository.New;
-using FireBank.Domain.Interfaces.Service.New;
-using FireBank.Service.Services.New;
+using FireBank.Domain.Interfaces.Repository;
+using FireBank.Domain.Interfaces.Service;
+using FireBank.Service.Services;
 using Moq;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace FireBank.Tests.Service.New
+namespace FireBank.Tests.Service
 {
     public class TransactionServiceTests
     {

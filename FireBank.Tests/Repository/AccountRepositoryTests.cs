@@ -1,13 +1,13 @@
 ﻿using Effort;
 using FireBank.Domain.Entities;
 using FireBank.Infra.Data.Configuration;
-using FireBank.Infra.Data.Repositories.New;
+using FireBank.Infra.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace FireBank.Tests.Repository.New
+namespace FireBank.Tests.Repository
 {
     public class AccountRepositoryTests
     {

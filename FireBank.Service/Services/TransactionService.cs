@@ -1,9 +1,9 @@
 ﻿using FireBank.Domain.Entities;
-using FireBank.Domain.Interfaces.Repository.New;
-using FireBank.Domain.Interfaces.Service.New;
+using FireBank.Domain.Interfaces.Repository;
+using FireBank.Domain.Interfaces.Service;
 using System.Collections.Generic;
 
-namespace FireBank.Service.Services.New
+namespace FireBank.Service.Services
 {
     public class TransactionService : ITransactionService
     {

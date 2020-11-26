@@ -1,15 +1,16 @@
 ﻿using FireBank.Domain.Entities;
 using System.Collections.Generic;
 
-namespace FireBank.Domain.Interfaces.Repository.New
+namespace FireBank.Domain.Interfaces.Service
 {
-    public interface IAccountRepository
+    public interface IAccountService
     {
-        Account Add(Account account);
+        Account Add(Account obj);
         Account GetById(int id);
-        int GetBalance(int accountId);
         IEnumerable<Account> GetAll();
         Account Update(Account obj);
         void Remove(Account obj);
+        bool BalanceIsValid(int balance, int accountId);
+        int GetBalance(int accountId);
     }
 }

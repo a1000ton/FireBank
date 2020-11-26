@@ -1,11 +1,11 @@
 ﻿using FireBank.Domain.Entities;
-using FireBank.Domain.Interfaces.Repository.New;
+using FireBank.Domain.Interfaces.Repository;
 using FireBank.Infra.Data.Configuration;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
-namespace FireBank.Infra.Data.Repositories.New
+namespace FireBank.Infra.Data.Repositories
 {
     public class AccountRepository : IAccountRepository
     {

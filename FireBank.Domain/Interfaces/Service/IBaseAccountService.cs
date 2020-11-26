@@ -9,5 +9,8 @@ namespace FireBank.Domain.Interfaces.Service
         IEnumerable<TEntity> GetAll();
         TEntity Update(TEntity obj);
         void Remove(TEntity obj);
+        bool BalanceIsValid(int balance, int accountId);
+        int GetBalance(int accountId);
+
     }
 }

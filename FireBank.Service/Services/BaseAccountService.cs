@@ -18,9 +18,24 @@ namespace FireBank.Service.Services
             return _repository.Add(obj);
         }
 
+        public bool BalanceIsValid(int balance, int accountId)
+        {
+            var account = _repository.GetById(accountId);
+            var accountType = account.GetType();
+
+            var balanceNegativLimit = (int)accountType.GetMethod("BalanceNegativeLimit").Invoke(account, new object[] { });
+
+            return balance >= balanceNegativLimit;
+        }
+
         public IEnumerable<TEntity> GetAll()
         {
             return _repository.GetAll();
+        }
+
+        public int GetBalance(int accountId)
+        {
+            return _repository.GetBalance(accountId);
         }
 
         public TEntity GetById(int id)

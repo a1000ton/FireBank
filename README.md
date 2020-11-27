@@ -1,21 +1,21 @@
 # FireBank
 
-#Account
+# Account
 
-#1.Creation
+# 1.Creation
 - /api/businessAccount
 - /api/studentAccount
 - /api/giroAccount
 
-#2.Query
+# 2.Query
 - /api/account/{id}
 
-#Transaction
+# Transaction
 
-#1.Creation
+# 1.Creation
 - /api/transaction
 
-#2.Query
+# 2.Query
 - /api/transaction{id}
 
 

@@ -9,6 +9,6 @@ namespace FireBank.Domain.Entities
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
         public virtual ICollection<Transaction> Transactions { get; set; }
-        public IAccountType AccountType { get; set; }
+        public virtual IAccountType AccountType { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FireBank.Application.Applications.Interfaces;
 using FireBank.Application.Models;
 using FireBank.Domain.Entities;
+using FireBank.Domain.Interfaces.Repository;
 using FireBank.Domain.Interfaces.Service;
 
 namespace FireBank.Application.Applications

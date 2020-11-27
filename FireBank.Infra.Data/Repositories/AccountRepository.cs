@@ -20,6 +20,10 @@ namespace FireBank.Infra.Data.Repositories
             _db.Set<Account>().Add(account);
             _db.SaveChanges();
 
+            account.AccountType.Account = account;
+            _db.Set(account.AccountType.GetType()).Add(account.AccountType);
+            _db.SaveChanges();
+
             return account;
         }
 
@@ -46,7 +50,7 @@ namespace FireBank.Infra.Data.Repositories
 
         public Account GetById(int id)
         {
-            return _db.Set<Account>().Find(id);
+            return _db.Set<Account>().Include(a => a.AccountType).First(a => a.Id == id);
         }
 
         public void Remove(Account obj)

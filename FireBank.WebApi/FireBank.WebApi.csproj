@@ -176,7 +176,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BusinessAccountController.cs" />
+    <Compile Include="Controllers\GiroAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StudentAccountController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -240,6 +242,8 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\BusinessAccount\" />
+    <Folder Include="Views\GiroAccount\" />
+    <Folder Include="Views\StudentAccount\" />
     <Folder Include="Views\Transaction\" />
   </ItemGroup>
   <ItemGroup>

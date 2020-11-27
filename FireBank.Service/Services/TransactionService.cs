@@ -22,7 +22,7 @@ namespace FireBank.Service.Services
             var accountId = obj.AccountId;
             var account = _accountService.GetById(accountId);
 
-            obj.Account = account;
+            obj.AccountId = account.Id;
 
             var oldBalance = _accountService.GetBalance(account);
             var currentBalance = oldBalance;

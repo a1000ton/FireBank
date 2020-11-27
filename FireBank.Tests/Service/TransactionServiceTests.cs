@@ -14,13 +14,17 @@ namespace FireBank.Tests.Service
         [Fact]
         public void Add_WhenPassObject_ShouldAddObject()
         {
+            var account = new Account()
+            {
+                Id = 1,
+                CreatedAt = DateTime.Now,
+                Name = Guid.NewGuid().ToString()
+            };
+
             var transaction = new Transaction()
             {
-                Account = new Account()
-                {
-                    CreatedAt = DateTime.Now,
-                    Name = Guid.NewGuid().ToString()
-                },
+                AccountId = 1,
+                Account = account,
                 Amount = 10,
                 Balance = 80,
                 Date = DateTime.Now,
@@ -29,7 +33,7 @@ namespace FireBank.Tests.Service
 
             var addedTransaction = new Transaction()
             {
-                Id = 2,
+                AccountId = 1,
                 Account = new Account()
                 {
                     CreatedAt = DateTime.Now,
@@ -47,6 +51,7 @@ namespace FireBank.Tests.Service
             var serviceAccountMock = new Mock<IAccountService>();
             serviceAccountMock.Setup(s => s.GetBalance(It.IsAny<Account>())).Returns(100);
             serviceAccountMock.Setup(s => s.BalanceIsValid(It.IsAny<int>(), It.IsAny<int>())).Returns(true);
+            serviceAccountMock.Setup(s => s.GetById(It.IsAny<int>())).Returns(account);
 
             var service = new TransactionService(repositoryMock.Object, serviceAccountMock.Object);
 

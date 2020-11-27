@@ -104,7 +104,7 @@ namespace FireBank.Application.Applications
 
         private IAccountModelType GetAccountType(IAccountType accountType)
         {
-            if (accountType.GetType() == typeof(BusinessAccount))
+            if (accountType.GetType().GetProperty("BusinessId") != null)
             {
                 var businessAccountType = (BusinessAccount)accountType;
 
@@ -114,7 +114,7 @@ namespace FireBank.Application.Applications
                 };
             }
 
-            if (accountType.GetType() == typeof(StudentAccount))
+            if (accountType.GetType().GetProperty("StudentId") != null)
             {
                 var studentAccountType = (StudentAccount)accountType;
 

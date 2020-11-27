@@ -50,7 +50,10 @@ namespace FireBank.Infra.Data.Repositories
 
         public Account GetById(int id)
         {
-            return _db.Set<Account>().Include(a => a.AccountType).First(a => a.Id == id);
+            var account = _db.Set<Account>().Find(id);
+            account.AccountType = GetAccountType(id);
+
+            return account;
         }
 
         public void Remove(Account obj)
@@ -65,6 +68,26 @@ namespace FireBank.Infra.Data.Repositories
             _db.SaveChanges();
 
             return obj;
+        }
+
+        private IAccountType GetAccountType(int accountId)
+        {
+            var businessAccount = _db.Set<BusinessAccount>().Find(accountId);
+
+            if (businessAccount != null)
+                return businessAccount;
+
+            var studentAccount = _db.Set<StudentAccount>().Find(accountId);
+
+            if (studentAccount != null)
+                return studentAccount;
+
+            var giroAccount = _db.Set<GiroAccount>().Find(accountId);
+
+            if (giroAccount != null)
+                return giroAccount;
+
+            return null;
         }
     }
 }
